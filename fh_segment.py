@@ -18,7 +18,7 @@ import time
 # Returns:
 #           num_ccs: number of connected components in the segmentation.
 # --------------------------------------------------------------------------------
-def segment(in_image, sigma, k, min_size):
+def fh_segment(in_image, sigma, k, min_size):
     start_time = time.time()
     height, width, band = in_image.shape
     print("Height:  " + str(height))
@@ -104,4 +104,4 @@ if __name__ == "__main__":
     input_image = ndimage.imread(input_path, flatten=False, mode=None)
     print("Loading is done.")
     print("processing...")
-    segment(input_image, sigma, k, min)
+    fh_segment(input_image, sigma, k, min)
