@@ -21,6 +21,7 @@ def segment_graph(num_vertices, num_edges, edges, c):
     # sort edges by weight (3rd column)
     edges[0:num_edges, :] = edges[edges[0:num_edges, 2].argsort()]
     # make a disjoint-set forest
+    # Here the code was: universe(num_vertices)
     u = DisjointSet(num_vertices)
     # init thresholds
     threshold = np.zeros(shape=num_vertices, dtype=float)
