@@ -61,7 +61,7 @@ def fh_segment(in_image, sigma, k, min_size):
     # Segment
     u = segment_graph(width * height, num, edges, k)
 
-    # post process small components
+    print('...post process small components...')
     for i in range(num):
         a = u.find(edges[i, 0])
         b = u.find(edges[i, 1])
@@ -69,10 +69,10 @@ def fh_segment(in_image, sigma, k, min_size):
             u.join(a, b)
 
     num_cc = u.num_sets()
-    output = np.zeros(shape=(height, width, 3))
+    output = np.zeros(shape=(height, width, 3), dtype=int)
 
     # pick random colors for each component
-    colors = np.zeros(shape=(height * width, 3))
+    colors = np.zeros(shape=(height * width, 3), dtype=int)
     for i in range(height * width):
         colors[i, :] = random_rgb()
 
