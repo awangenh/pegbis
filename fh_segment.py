@@ -1,3 +1,6 @@
+#!/opt/anaconda/bin/python3
+# -*- coding: utf-8 -*-
+
 from scipy import ndimage
 import matplotlib.pyplot as plt
 from filter import *
@@ -94,7 +97,7 @@ if __name__ == "__main__":
     input_image = ndimage.imread(input_path, flatten=False, mode=None)
     print("Loading is done.")
     print("processing...")
-    output_image = fh_segment(input_image, sigma, k, min)
+    output_image, elapsed_time = fh_segment(input_image, sigma, k, min)
     print("Execution time: " + str(int(elapsed_time / 60)) + " minute(s) and " + str(int(elapsed_time % 60)) + " seconds")
     # displaying the result
     fig = plt.figure()
