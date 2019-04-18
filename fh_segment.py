@@ -79,19 +79,9 @@ def fh_segment(in_image, sigma, k, min_size):
             output[y, x, :] = colors[comp, :]
 
     elapsed_time = time.time() - start_time
-    print(
-        "Execution time: " + str(int(elapsed_time / 60)) + " minute(s) and " + str(
-            int(elapsed_time % 60)) + " seconds")
+    return output, elapsed_time
 
-    # displaying the result
-    fig = plt.figure()
-    a = fig.add_subplot(1, 2, 1)
-    plt.imshow(in_image)
-    a.set_title('Original Image')
-    a = fig.add_subplot(1, 2, 2)
-    plt.imshow(output)
-    a.set_title('Segmented Image')
-    plt.show()
+    
 
 
 if __name__ == "__main__":
@@ -104,4 +94,14 @@ if __name__ == "__main__":
     input_image = ndimage.imread(input_path, flatten=False, mode=None)
     print("Loading is done.")
     print("processing...")
-    fh_segment(input_image, sigma, k, min)
+    output_image = fh_segment(input_image, sigma, k, min)
+    print("Execution time: " + str(int(elapsed_time / 60)) + " minute(s) and " + str(int(elapsed_time % 60)) + " seconds")
+    # displaying the result
+    fig = plt.figure()
+    a = fig.add_subplot(1, 2, 1)
+    plt.imshow(in_image)
+    a.set_title('Original Image')
+    a = fig.add_subplot(1, 2, 2)
+    plt.imshow(output_image)
+    a.set_title('Segmented Image')
+    plt.show()
