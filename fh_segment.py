@@ -102,7 +102,7 @@ if __name__ == "__main__":
     # displaying the result
     fig = plt.figure()
     a = fig.add_subplot(1, 2, 1)
-    plt.imshow(in_image)
+    plt.imshow(input_image)
     a.set_title('Original Image')
     a = fig.add_subplot(1, 2, 2)
     plt.imshow(output_image)
